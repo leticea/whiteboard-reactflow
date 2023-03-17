@@ -42,8 +42,8 @@ export function App() {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   const onConnect = useCallback((connection: Connection) => {
-    return setEdges(edges => addEdge(connection, edges))
-  }, [])
+    return setEdges((edges) => addEdge(connection, edges));
+  }, []);
 
   return (
     <div className="w-screen h-screen">
