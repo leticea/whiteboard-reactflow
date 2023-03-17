@@ -1,4 +1,5 @@
 import ReactFlow, {
+  addEdge,
   Background,
   Connection,
   ConnectionMode,
@@ -41,7 +42,7 @@ export function App() {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   const onConnect = useCallback((connection: Connection) => {
-    return setEdges(edges => )
+    return setEdges(edges => addEdge(connection, edges))
   }, [])
 
   return (
@@ -49,6 +50,9 @@ export function App() {
       <ReactFlow
         nodeTypes={NODE_TYPES}
         nodes={INITIAL_NODES}
+        edges={edges}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
         connectionMode={ConnectionMode.Loose}
       >
         <Background gap={12} size={2} color={zinc[200]} />
