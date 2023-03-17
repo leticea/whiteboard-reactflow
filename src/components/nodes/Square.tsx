@@ -1,8 +1,13 @@
+import { NodeResizer } from "@reactflow/node-resizer";
 import { NodeProps, Handle, Position } from "reactflow";
 
 export function Square(props: NodeProps) {
   return (
-    <div className="bg-violet-500 rounded w-[200px] h-[200px]">
+    <div className="bg-violet-500 rounded min-w-[200px] min-h-[200px]">
+      <NodeResizer
+        minWidth={200}
+        minHeight={200}
+      />
       <Handle
         id="right"
         type="source"
